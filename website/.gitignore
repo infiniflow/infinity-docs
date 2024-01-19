@@ -1,5 +1,9 @@
-# Dependencies
-/node_modules
+# IDEs
+.vscode
+
+# Node
+node_modules/
+.yarn
 
 # Production
 /build
