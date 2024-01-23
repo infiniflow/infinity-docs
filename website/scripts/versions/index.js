@@ -9,7 +9,7 @@ const writeFile = (file, data) => {
 }
 
 function keepLastNVersion(n) {
-  const data = shell.exec('cd $TAICHI_PATH && git tag').stdout.trim()
+  const data = shell.exec('cd $INFINITY_MAIN && git tag').stdout.trim()
   const tags =  _.compact(data.split('\n'))
     .filter(semver.valid)
     .sort(semver.compare)

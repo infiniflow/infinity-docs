@@ -7,6 +7,7 @@ yarn install
 
 if [ "$1" != "dev" ]
 then
+  # Retrieve the last 2 versions from the main repository and save them to versions.json
   yarn run genversions
 
   for version in $(cat versions.json | jq -r '.[]'); do
@@ -15,5 +16,5 @@ then
   done
 fi
 
-cd $TAICHI_WEBSITE/website
-./sync_version.sh master
+cd $INFINITY_WEBSITE/website
+./sync_version.sh main
