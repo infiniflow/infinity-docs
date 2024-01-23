@@ -1,0 +1,79 @@
+name: Sync Docs
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Infinity repository
+        # https://github.com/actions/checkout/blob/v3/README.md
+        uses: actions/checkout@v3
+        with:
+          repository: infiniflow/finity
+          # Relative path under $GITHUB_WORKSPACE to place the repository
+          path: source  
+
+      - name: Checkout Infinity docs repo
+        uses: actions/checkout@v3
+        with:
+          repository: infiniflow/infinity-docs
+          path: target
+
+      - name: Install Dependences
+        # Install lightweight command-line JSON processor
+        run: sudo apt-get install -y jq
+  
+      - name: Set Env
+        run: |
+          echo "INFINITY_MAIN=${GITHUB_WORKSPACE}/source" >> $GITHUB_ENV
+          echo "INFINITY_WEBSITE=${GITHUB_WORKSPACE}/target" >> $GITHUB_ENV
+
+      - name: Export Env
+        run: |
+          export INFINITY_MAIN=${{ env.INFINITY_MAIN }}
+          export INFINITY_WEBSITE=${{ env.INFINITY_WEBSITE }}
+
+      - name: Sync and stage changes
+        run: |
+          cd $INFINITY_MAIN && git fetch --tags
+          cd $INFINITY_WEBSITE/website && ./sync_docs.sh
+
+      - name: Create a Pull Request
+        id: create-pr
+        # https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.CURATOR_PAT }}
+          path: target
+          commit-message: Synchronize documentation.
+          committer: Infinity Curator <infinitydocs.curator@outlook.com>
+          author: Infinity Curator <infinitydocs.curator@users.noreply.github.com>
+          signoff: false
+          base: main
+          branch: sync-documentation
+          delete-branch: true
+          draft: false
+          title: '[Cron] Sync and update documentation'
+          body: 'Auto-generated and will be automatically merged.'
+          labels: |
+            automation
+
+      - name: Enable auto-merge on the Pull Request
+        if: steps.create-pr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v1
+        with:
+          token: ${{ secrets.CURATOR_PAT }}
+          pull-request-number: ${{ steps.create-pr.outputs.pull-request-number }}
+          merge-method: squash
+    
+      - name: Auto approve the Pull Request
+        if: steps.create-pr.outputs.pull-request-operation == 'created'
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          # Use Action Bot to approve the pull request because one cannot approve his own.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.create-pr.outputs.pull-request-number }}
