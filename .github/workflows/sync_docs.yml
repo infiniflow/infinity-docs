@@ -61,6 +61,12 @@ jobs:
           body: 'Auto-generated and will be automatically merged.'
           labels: |
             automation
+      
+      - name: Check outputs
+        if: ${{ steps.create-pr.outputs.pull-request-number }}
+        run: |
+          echo "Pull Request Number - ${{ steps.create-pr.outputs.pull-request-number }}"
+          echo "Pull Request Operation - ${{ steps.create-pr.outputs.pull-request-operation }}"
 
       - name: Enable auto-merge on the Pull Request
         if: steps.create-pr.outputs.pull-request-operation == 'created'
