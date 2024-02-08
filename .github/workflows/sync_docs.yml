@@ -45,7 +45,7 @@ jobs:
       - name: Create a Pull Request
         id: create-pr
         # https://github.com/peter-evans/create-pull-request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.CURATOR_PAT }}
           path: target
@@ -67,8 +67,9 @@ jobs:
           echo "Pull Request Number - ${{ steps.create-pr.outputs.pull-request-number }}"
           echo "Pull Request Operation - ${{ steps.create-pr.outputs.pull-request-operation }}"
     
-      - name: Auto approve the Pull Request
-        uses: juliangruber/approve-pull-request-action@v1
+      - name: Auto approve the pull request
+        if: steps.create-pr.outputs.pull-request-operation == 'created'
+        uses: juliangruber/approve-pull-request-action@v2.0.0
         with:
           # Use Action Bot to approve the pull request because one cannot approve his own.
           github-token: ${{ secrets.GITHUB_TOKEN }}
