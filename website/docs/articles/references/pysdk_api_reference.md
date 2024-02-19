@@ -153,13 +153,13 @@ db_obj.create_table("test_create_embedding_table",
 
 - `columns_definition` : `dict`
     - key: `column name`: `str`
-    - value: <`datatype`>,<`constraint`>,<`constraint`> :`str`
+    - value: `<datatype>`,`<constraint>`,`<constraint>` :`str`
 
 #### embedding
 
 - `columns_definition` : `dict`
     - key: `column name`: `str`
-    - value: vector,<`dimension`>,<`element_type`> :`str`
+    - value: vector,`<dimension>`,`<element_type>` :`str`
 
 ### Parameters
 

@@ -28,4 +28,4 @@ In addition to basic vector search, an AI-vector database also offers advanced c
 
 ## Where can I find a benchmark report of your database?
 
-You can find a benchmark report on Infinity, the AI-native database, [here]().
+You can find a benchmark report on Infinity, the AI-native database, here.
