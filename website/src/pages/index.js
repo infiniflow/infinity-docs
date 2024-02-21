@@ -19,8 +19,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Providing incredibly fast vector and full-text search
+            to="/docs/build_from_source">
+            Providing incredibly fast full-text and vector search
           </Link>
         </div>
       </div>
