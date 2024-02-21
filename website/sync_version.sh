@@ -24,7 +24,7 @@ cd $INFINITY_WEBSITE/website
 rm -rf ./$prefixPath
 mkdir -p ./$prefixPath
 rsync -avh --delete $INFINITY_MAIN/docs/ $INFINITY_WEBSITE/website/$prefixPath/
-node ./scripts/flaturl ./$prefixPath ./$prefixPath
+# node ./scripts/flaturl ./$prefixPath ./$prefixPath
 # cp -r variables ./$prefixPath/variables
 # rsync -avh --delete $INFINITY_MAIN/docs/variable.json $INFINITY_WEBSITE/website/$prefixPath/variables/variable.json
 # rsync -avh --delete $INFINITY_MAIN/docs/fragments/ $INFINITY_WEBSITE/website/$prefixPath/fragments
