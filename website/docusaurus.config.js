@@ -45,6 +45,11 @@ const config = {
           // Remove this to remove the "edit this page" links.
           // editUrl:
           //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          versions: {
+            current: {
+              label: 'Next',
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -82,6 +87,10 @@ const config = {
           {
             href: 'https://github.com/infiniflow/infinity',
             label: 'GitHub',
+            position: 'left',
+          },
+          {
+            type: 'docsVersionDropdown',
             position: 'right',
           },
         ],
