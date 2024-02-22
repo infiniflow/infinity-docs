@@ -16,6 +16,10 @@
 }
 /* You can override the default Infima variables here. */
 :root {
+
+  --ifm-font-family-base: LucidaGrande,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  --ifm-font-family-monospace: Consolas,SFMono-Regular,Menlo,Monaco,"Liberation Mono","Courier New",monospace;
+
   --ifm-color-primary: #4c8ef4;
   --ifm-color-primary-dark: #2e7bf2;
   --ifm-color-primary-darker: #1f71f1;
