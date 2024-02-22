@@ -3,7 +3,11 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-
+ @font-face {
+  font-family: LucidaGrande;
+  src: url('./LucidaGrande.ttf')
+    format('TrueType');
+}
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #4c8ef4;
@@ -27,4 +31,8 @@
   --ifm-color-primary-lighter: #0070de;
   --ifm-color-primary-lightest: #007efb;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: 'Lucida Grande', sans-serif;
 }
