@@ -3,9 +3,23 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
+ @font-face {
+  font-family: Consolas;
+  src: url('./Consolas.ttf')
+    format('TrueType');
+}
 
+ @font-face {
+  font-family: LucidaGrande;
+  src: url('./LucidaGrande.ttf')
+    format('TrueType');
+}
 /* You can override the default Infima variables here. */
 :root {
+
+  --ifm-font-family-base: LucidaGrande,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  --ifm-font-family-monospace: Consolas,SFMono-Regular,Menlo,Monaco,"Liberation Mono","Courier New",monospace;
+
   --ifm-color-primary: #4c8ef4;
   --ifm-color-primary-dark: #2e7bf2;
   --ifm-color-primary-darker: #1f71f1;
@@ -27,4 +41,8 @@
   --ifm-color-primary-lighter: #0070de;
   --ifm-color-primary-lightest: #007efb;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: 'Lucida Grande', sans-serif;
 }
