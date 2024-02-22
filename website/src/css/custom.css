@@ -4,6 +4,12 @@
  * work well for content-centric websites.
  */
  @font-face {
+  font-family: Consolas;
+  src: url('./Consolas.ttf')
+    format('TrueType');
+}
+
+ @font-face {
   font-family: LucidaGrande;
   src: url('./LucidaGrande.ttf')
     format('TrueType');
