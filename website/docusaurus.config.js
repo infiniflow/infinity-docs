@@ -47,7 +47,7 @@ const config = {
           //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           versions: {
             current: {
-              label: 'Next 🚧',
+              label: 'Next',
             },
           },
         },
@@ -87,6 +87,10 @@ const config = {
           {
             href: 'https://github.com/infiniflow/infinity',
             label: 'GitHub',
+            position: 'left',
+          },
+          {
+            type: 'docsVersionDropdown',
             position: 'right',
           },
         ],
