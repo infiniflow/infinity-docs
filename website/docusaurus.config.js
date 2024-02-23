@@ -41,6 +41,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          sidebarCollapsible: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -69,8 +70,14 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
+ 
       image: 'img/docusaurus-social-card.jpg',
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: false,
+      },
       navbar: {
+        hideOnScroll: false,
         title: 'Infinity',
         logo: {
           alt: 'Infinity',
@@ -90,9 +97,33 @@ const config = {
             position: 'left',
           },
           {
+            'aria-label': 'GitHub Repository',
+            'className': 'navbar--github-link',
+            'href': 'https://github.com/infiniflow/infinity',
+            'position': 'right',
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right',
           },
+          {
+            href: 'https://github.com/infiniflow/infinity',
+            'aria-label': 'Infinity GitHub repo',
+            position: 'right',
+            className: 'header-github-link',
+          },
+          {
+            href: 'https://twitter.com/infiniflowai',
+            'aria-label': 'Infinity on Twitter',
+            position: 'right',
+            className: 'header-twitter-link',
+          },   
+          {
+            href: 'https://discord.com/invite/jEfRUwEYEV',
+            'aria-label': 'Infinity on Discord',
+            position: 'right',
+            className: 'header-discord-link',
+          },         
         ],
       },
       footer: {
