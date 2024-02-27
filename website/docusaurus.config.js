@@ -41,6 +41,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          editUrl: 'https://github.com/infiniflow/infinity-docs/tree/main/website',
           sidebarCollapsible: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -50,6 +51,11 @@ const config = {
             current: {
               label: 'Next',
             },
+          },
+          // Needs to disable versioning when deployed in production.
+          // disableVersioning: true,
+          admonitions: {
+            keywords: ['note', 'tip', 'info', 'warning', 'danger'],
           },
         },
         blog: {
@@ -72,9 +78,15 @@ const config = {
       // Replace with your project's social card
  
       image: 'img/docusaurus-social-card.jpg',
-      sidebar: {
-        hideable: true,
-        autoCollapseCategories: false,
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: false,
+        },
       },
       navbar: {
         hideOnScroll: false,
@@ -100,7 +112,8 @@ const config = {
             'aria-label': 'GitHub Repository',
             'className': 'navbar--github-link',
             'href': 'https://github.com/infiniflow/infinity',
-            'position': 'right',
+            'position': 'left',
+             content: '2.1k',
           },
           {
             type: 'docsVersionDropdown',
@@ -108,13 +121,14 @@ const config = {
           },
           {
             href: 'https://github.com/infiniflow/infinity',
-            'aria-label': 'Infinity GitHub repo',
+            'aria-label': 'GitHub repo',
             position: 'right',
             className: 'header-github-link',
+            
           },
           {
             href: 'https://twitter.com/infiniflowai',
-            'aria-label': 'Infinity on Twitter',
+            'aria-label': 'Twitter',
             position: 'right',
             className: 'header-twitter-link',
           },   
