@@ -108,12 +108,15 @@ const config = {
             label: 'GitHub',
             position: 'left',
           },
+          // {
+          //   'aria-label': 'GitHub Repository',
+          //   'className': 'navbar--github-link',
+          //   'href': 'https://github.com/infiniflow/infinity',
+          //   'position': 'left',
+          // },
           {
-            'aria-label': 'GitHub Repository',
-            'className': 'navbar--github-link',
-            'href': 'https://github.com/infiniflow/infinity',
-            'position': 'left',
-             content: '2.1k',
+            type: 'custom-github-stars',
+            position: 'left',
           },
           {
             type: 'docsVersionDropdown',
