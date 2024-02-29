@@ -126,8 +126,7 @@ const config = {
             href: 'https://github.com/infiniflow/infinity',
             'aria-label': 'GitHub repo',
             position: 'right',
-            className: 'header-github-link',
-            
+            className: 'header-github-link', 
           },
           {
             href: 'https://twitter.com/infiniflowai',

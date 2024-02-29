@@ -31,18 +31,19 @@ export const GithubStars = () => {
   }, []);
 
   return (
-    <a
-      href="https://github.com/infiniflow/infinity"
-      target="_blank"
-      className="hover:no-underline"
-    >
-      <div className="flex border border-grey-3 bg-grey-0 text-grey-4 rounded-sm text-caption">
-        <div className="p-1 px-2 bg-grey-2 flex items-center">
-          <StarIcon height={16} width={16} />
-          <span className='ml-1'>Star</span>
-        </div>
-        <div className='p-1 px-2'>{star}</div>
+  <a
+    href="https://github.com/infiniflow/infinity"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="custom_link" 
+  >
+    <div>
+      <div>
+        <StarIcon height={14} width={14} />
+        <span> Stars </span>
+        <span>{star}</span>
       </div>
-    </a>
+    </div>
+  </a>
   );
 };
