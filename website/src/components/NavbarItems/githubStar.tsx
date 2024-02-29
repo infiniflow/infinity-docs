@@ -35,7 +35,7 @@ export const GithubStars = () => {
     href="https://github.com/infiniflow/infinity"
     target="_blank"
     rel="noopener noreferrer"
-    className="custom_link" 
+    className="navbar__item navbar__link" 
   >
     <div>
       <div>
