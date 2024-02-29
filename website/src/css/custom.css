@@ -17,6 +17,9 @@
 /* You can override the default Infima variables here. */
 :root {
 
+  --light-border-color: #ccc; /* Replace with your desired light mode border color */
+  --dark-border-color: #666; /* Replace with your desired dark mode border color */  
+
   --ifm-font-family-base: LucidaGrande,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   --ifm-font-family-monospace: Consolas,SFMono-Regular,Menlo,Monaco,"Liberation Mono","Courier New",monospace;
 
@@ -118,25 +121,11 @@ html[data-theme='dark'] .header-discord-link:before {
   filter: invert(100%);
 }
 
-.custom-link {
-  --text-color-dark: white;
-  --text-color-light: black;
+.footer {
+  --ifm-footer-background-color:#242526;
 }
 
-@media (prefers-color-scheme: dark) {
-  .custom-link {
-    --text-color-hover: initial;
-    --text-color: var(--text-color-dark);
-  }
+.navbar {
+  border-bottom: 0.1px solid var(--light-border-color)
 }
-
-@media (prefers-color-scheme: light) {
-  .custom-link {
-    --text-color-hover: initial;
-    --text-color: var(--text-color-light);
-  }
-}
-
-.custom-link:hover {
-  --text-color-hover: initial;
-}
+/* Media query to adjust the border color for dark mode */

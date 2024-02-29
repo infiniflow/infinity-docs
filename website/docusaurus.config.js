@@ -103,11 +103,11 @@ const config = {
             label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/infiniflow/infinity',
-            label: 'GitHub',
-            position: 'left',
-          },
+          // {
+          //   href: 'https://github.com/infiniflow/infinity',
+          //   label: 'GitHub',
+          //   position: 'left',
+          // },
           // {
           //   'aria-label': 'GitHub Repository',
           //   'className': 'navbar--github-link',
@@ -115,18 +115,18 @@ const config = {
           //   'position': 'left',
           // },
           {
+            href: 'https://github.com/infiniflow/infinity',
+            'aria-label': 'GitHub repo',
+            position: 'left',
+            className: 'header-github-link', 
+          },
+          {
             type: 'custom-github-stars',
             position: 'left',
           },
           {
             type: 'docsVersionDropdown',
             position: 'right',
-          },
-          {
-            href: 'https://github.com/infiniflow/infinity',
-            'aria-label': 'GitHub repo',
-            position: 'right',
-            className: 'header-github-link', 
           },
           {
             href: 'https://twitter.com/infiniflowai',
