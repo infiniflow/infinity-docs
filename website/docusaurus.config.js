@@ -76,7 +76,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
- 
+      prism: {
+        theme: require('prism-react-renderer').themes.oceanicNext,
+        darkTheme: require("prism-react-renderer").themes.oceanicNext,
+      },
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         defaultMode: 'dark',
@@ -103,17 +106,6 @@ const config = {
             label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
-          // {
-          //   href: 'https://github.com/infiniflow/infinity',
-          //   label: 'GitHub',
-          //   position: 'left',
-          // },
-          // {
-          //   'aria-label': 'GitHub Repository',
-          //   'className': 'navbar--github-link',
-          //   'href': 'https://github.com/infiniflow/infinity',
-          //   'position': 'left',
-          // },
           {
             href: 'https://github.com/infiniflow/infinity',
             'aria-label': 'GitHub repo',
@@ -186,10 +178,6 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} InfiniFlow all rights reserved`,
-      },
-      prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
       },
     }),
 };
