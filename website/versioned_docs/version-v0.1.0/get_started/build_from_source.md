@@ -21,7 +21,7 @@ git clone https://github.com/infiniflow/infinity.git
 
 ### Step2 Build the source code using Docker
 
-```shell showLineNumbers
+```shell
 cd infinity && mkdir build
 TZ=$(readlink -f /etc/localtime | awk -F '/zoneinfo/' '{print $2}')
 docker run -d --name infinity_build --network=host -e TZ=$TZ -v $PWD:/infinity infiniflow/infinity_builder:centos7
@@ -40,7 +40,7 @@ This section provides instructions on building Infinity from source on Ubuntu 22
 
 ### Step1 Install necessary dependencies
 
-```shell showLineNumbers
+```shell
 sudo apt update && sudo apt install git wget unzip software-properties-common
 wget https://cmake.org/files/v3.28/cmake-3.28.1-linux-x86_64.tar.gz
 tar zxvf cmake-3.28.1-linux-x86_64.tar.gz
