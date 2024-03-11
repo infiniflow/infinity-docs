@@ -4,32 +4,40 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Incredibly fast',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        <li>Achieves 0.1 milliseconds query latency on million-scale vector datasets.</li>
+        <li>Up to 10K QPS on million-scale vector datasets.</li>
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Fused search',
+    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    description: (
+      <>
+        Supports a fused search of multiple embeddings and full text, in addition to filtering.
+      </>
+    ),
+  },
+  {
+    title: 'Rich data types',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Supports a wide range of data types including strings, numerics, vectors, and more.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Ease-of-use',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        <li>Intuitive Python API.</li>
+        <li>A single-binary architecture with no dependencies, making deployment a breeze.</li>
       </>
     ),
   },

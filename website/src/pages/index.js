@@ -10,7 +10,7 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)} >
       <div className="container">
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
@@ -18,9 +18,9 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={`button button--secondary button--lg`}
             to="/docs/build_from_source">
-            Providing incredibly fast full-text and vector search
+            Get Started
           </Link>
         </div>
       </div>
@@ -32,8 +32,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title} - The AI-native Database`}
+      description="Offering incredibly fast full-text and vector search <head />">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
