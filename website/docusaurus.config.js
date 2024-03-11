@@ -9,11 +9,11 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Infinity',
-  tagline: 'The AI-native database for LLM applications',
+  tagline: 'The AI-native database for for LLM applications, providing incredibly fast full-text and vector search',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://infiniflow.org',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -40,6 +40,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          disableVersioning: false,
           sidebarPath: './sidebars.js',
           editUrl: 'https://github.com/infiniflow/infinity-docs/tree/main/website',
           sidebarCollapsible: true,
@@ -82,8 +83,9 @@ const config = {
       },
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: false
+        defaultMode: 'light',
+        disableSwitch: true,
+        
       },
       docs: {
         sidebar: {
