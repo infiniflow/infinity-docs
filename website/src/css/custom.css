@@ -48,6 +48,7 @@ body {
   font-family: 'Lucida Grande', sans-serif;
   background-color: #090328;
   color: #fff;
+  position: relative;
 }
 
 /* github */

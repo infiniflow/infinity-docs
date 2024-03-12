@@ -9,6 +9,7 @@
   position: relative;
   overflow: hidden;
   background-color: transparent;
+  height: 912px;
 }
 
 .rightBottomBackground {
@@ -99,6 +100,7 @@
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
+    height: 24rem;
   }
   .tinyTitle {
     font-size: 0.5rem;
