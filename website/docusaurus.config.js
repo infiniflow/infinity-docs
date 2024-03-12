@@ -4,12 +4,12 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Infinity',
-  tagline: 'The AI-native database for for LLM applications, providing incredibly fast full-text and vector search',
+  tagline: 'The AI-native database for for LLM applications',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -42,7 +42,8 @@ const config = {
         docs: {
           disableVersioning: false,
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/infiniflow/infinity-docs/tree/main/website',
+          editUrl:
+            'https://github.com/infiniflow/infinity-docs/tree/main/website',
           sidebarCollapsible: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -79,13 +80,12 @@ const config = {
       // Replace with your project's social card
       prism: {
         theme: require('prism-react-renderer').themes.oceanicNext,
-        darkTheme: require("prism-react-renderer").themes.oceanicNext,
+        darkTheme: require('prism-react-renderer').themes.oceanicNext,
       },
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true,
-        
       },
       docs: {
         sidebar: {
@@ -107,12 +107,12 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/infiniflow/infinity',
             'aria-label': 'GitHub repo',
             position: 'left',
-            className: 'header-github-link', 
+            className: 'header-github-link',
           },
           {
             type: 'custom-github-stars',
@@ -127,13 +127,13 @@ const config = {
             'aria-label': 'Twitter',
             position: 'right',
             className: 'header-twitter-link',
-          },   
+          },
           {
             href: 'https://discord.com/invite/jEfRUwEYEV',
             'aria-label': 'Infinity on Discord',
             position: 'right',
             className: 'header-discord-link',
-          },         
+          },
         ],
       },
       footer: {
