@@ -4,17 +4,12 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
-import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        {/* <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading> */}
         <span className={styles.tinyTitle}>Super. Simple. Smart.</span>
         <p className={clsx('hero__subtitle', styles.mainTitle)}>
           The
@@ -26,13 +21,15 @@ function HomepageHeader() {
         </p>
         <div className={styles.buttons}>
           <Link
-            className={`button button--secondary button--lg`}
+            className={`button button--secondary button--lg ${styles.getStatedLink}`}
             to="/docs/build_from_source"
           >
             Get Started
           </Link>
         </div>
       </div>
+      <div className={styles.rightBottomBackground}></div>
+      <div className={styles.leftTopBackground}></div>
     </header>
   );
 }
