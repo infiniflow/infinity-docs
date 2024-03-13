@@ -118,16 +118,80 @@ html[data-theme='dark'] .header-discord-link:before {
 .footer {
   /* --ifm-footer-background-color: #242526; */
   background: #161b26;
+  padding: 64px 0 100px;
 }
 
 .footer .container {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
+  padding-bottom: 64px;
+}
+
+.footer .container:after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  width: calc(100% - 16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .footer .container .footer__bottom {
   margin-right: 12%;
+  text-align: left;
+}
+
+.footer .container .footer__col {
+  padding: 0 50px;
+}
+.footer .footer__title {
+  color: #f5f5f6;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.footer .footer__link-item {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.footer__bottom .footer__logo {
+  margin: 0;
+}
+
+.footer__copyright {
+  max-width: 274px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'TT Firs Neue';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150.854%;
+}
+
+.footer_custom_copyright {
+  position: absolute;
+  bottom: -50px;
+  left: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.footer-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .navbar {

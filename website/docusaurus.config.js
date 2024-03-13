@@ -155,6 +155,7 @@ const config = {
           //     },
           //   ],
           // },
+
           {
             title: 'Community',
             items: [
@@ -169,6 +170,9 @@ const config = {
               {
                 label: 'Twitter',
                 href: 'https://twitter.com/infiniflowai',
+              },
+              {
+                html: `<div class="footer_custom_copyright"> Copyright © ${new Date().getFullYear()} InfiniFlow all rights reserved </div>`,
               },
             ],
           },
@@ -186,7 +190,9 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} InfiniFlow all rights reserved`,
+        copyright: `The World’s First and largest Digital
+        Marketplace for Crypto Collectibles
+        and Non - Fungible Tokens`,
       },
     }),
 };
