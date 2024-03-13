@@ -120,6 +120,16 @@ html[data-theme='dark'] .header-discord-link:before {
   background: #161b26;
 }
 
+.footer .container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.footer .container .footer__bottom {
+  margin-right: 12%;
+}
+
 .navbar {
   border-bottom: 0.1px solid var(--light-border-color);
   background-color: transparent;

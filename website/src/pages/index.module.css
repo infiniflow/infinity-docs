@@ -123,6 +123,88 @@
   padding: 16px 22px;
 }
 
+.joinUsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 96px 0;
+}
+.joinUsTitle {
+  color: #f5f5f6;
+  text-align: center;
+  font-family: Inter;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: -0.72px;
+  padding-bottom: 20px;
+}
+
+.joinUsDescription {
+  color: #94969c;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 150% */
+  padding-bottom: 64px;
+}
+
+.joinUsConnection {
+  display: flex;
+  height: 84px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(22, 27, 38, 0.25) 0%,
+    rgba(5, 129, 229, 0.25) 48.29%,
+    rgba(22, 27, 38, 0.25) 100%
+  );
+}
+
+.joinUsConnectionItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  color: #f5f5f6;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.joinUsArrow {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('/img/arrow.svg');
+}
+
+.joinUsIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.joinUsTwitter {
+  background: url('/img/twitter.svg');
+}
+.joinUsGithub {
+  background: url('/img/github.svg');
+}
+.joinUsDiscord {
+  background: url('/img/discord.svg');
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
@@ -158,5 +240,37 @@
     width: 12rem;
     height: 8rem;
     border-radius: 15rem;
+  }
+
+  .joinUsWrapper {
+    padding: 3rem 0;
+  }
+  .joinUsTitle {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .joinUsDescription {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    padding-bottom: 2rem;
+  }
+
+  .joinUsConnection {
+    height: 2.6rem;
+    gap: 3%;
+    border-radius: 4px;
+  }
+
+  .joinUsConnectionItem {
+    gap: 8px;
+    font-size: 8px;
+    line-height: 20px;
+  }
+
+  .joinUsArrow {
+    width: 1rem;
+    height: 1rem;
   }
 }
