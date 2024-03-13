@@ -78,9 +78,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-        appId: "G23OEULB0Z",
-        apiKey: "8d8c27bf49a7eb177b2b3fcb02c64d19",
-        indexName: "infiniflow", 
+        appId: 'G23OEULB0Z',
+        apiKey: '8d8c27bf49a7eb177b2b3fcb02c64d19',
+        indexName: 'infiniflow',
         contextualSearch: true,
       },
       // Replace with your project's social card
@@ -144,6 +144,7 @@ const config = {
       },
       footer: {
         style: 'dark',
+        logo: { src: 'img/favicon.ico' },
         links: [
           // {
           //   title: 'Docs',
@@ -154,6 +155,7 @@ const config = {
           //     },
           //   ],
           // },
+
           {
             title: 'Community',
             items: [
@@ -169,10 +171,13 @@ const config = {
                 label: 'Twitter',
                 href: 'https://twitter.com/infiniflowai',
               },
+              {
+                html: `<div class="footer_custom_copyright"> Copyright © ${new Date().getFullYear()} InfiniFlow all rights reserved </div>`,
+              },
             ],
           },
           {
-            title: 'More',
+            title: 'Resources',
             items: [
               {
                 label: 'Blog',
@@ -185,7 +190,9 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} InfiniFlow all rights reserved`,
+        copyright: `The World’s First and largest Digital
+        Marketplace for Crypto Collectibles
+        and Non - Fungible Tokens`,
       },
     }),
 };

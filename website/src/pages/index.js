@@ -6,6 +6,8 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 
+const connectionList = ['Twitter', 'Github', 'Discord'];
+
 function HomepageHeader() {
   return (
     <>
@@ -35,6 +37,28 @@ function HomepageHeader() {
   );
 }
 
+function JoinUs() {
+  return (
+    <section className={styles.joinUsWrapper}>
+      <div className={styles.joinUsTitle}>Join Our Community</div>
+      <div className={styles.joinUsDescription}>
+        We have a vibrant tech community eagerly waiting for you here.
+      </div>
+      <section className={clsx(styles.joinUsConnection, 'container')}>
+        {connectionList.map((x) => (
+          <div className={styles.joinUsConnectionItem} key={x}>
+            <span
+              className={clsx(styles[`joinUs${x}`], styles.joinUsIcon)}
+            ></span>
+            {x}
+            <span className={styles.joinUsArrow}></span>
+          </div>
+        ))}
+      </section>
+    </section>
+  );
+}
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -45,6 +69,7 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <JoinUs></JoinUs>
       </main>
     </Layout>
   );
