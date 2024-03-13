@@ -1,11 +1,131 @@
+.featuresWrapper {
+  padding: 96px 0;
+}
+
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 4rem 0 0;
   width: 100%;
 }
 
+.tinyTitle {
+  color: #cecfd2;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.mainTitle {
+  color: #f5f5f6;
+  text-align: center;
+  font-family: Inter;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px; /* 122.222% */
+  letter-spacing: -0.72px;
+}
+
+.minorTitle {
+  color: #94969c;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+  line-height: 30px; /* 150% */
+}
+
+.featuresContainer {
+  gap: 2%;
+}
+
+.featureItem {
+  padding: 32px;
+  text-align: left;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 129, 229, 0.25) 0.21%,
+    rgba(22, 29, 38, 0.25) 99.81%
+  );
+}
+
+.featureItemTitle {
+  color: #f5f5f6;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px; /* 150% */
+  padding-top: 32px;
+}
+
+.featureItemDescription {
+  color: #94969c;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
 .featureSvg {
-  height: 200px;
-  width: 200px;
+}
+
+@media screen and (max-width: 996px) {
+  .featuresWrapper {
+    padding: 3rem 0;
+  }
+
+  .features {
+    padding-top: 2rem;
+  }
+  .tinyTitle {
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+  }
+
+  .mainTitle {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+
+  .minorTitle {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+  }
+
+  .featuresContainer {
+    display: block;
+    text-align: center;
+  }
+
+  .featureItem {
+    text-align: center;
+    width: 80%;
+    display: inline-block;
+    padding: 1rem;
+  }
+
+  .featureItemTitle {
+    padding-top: 1rem;
+    font-size: 0.6rem;
+    line-height: 0.9rem; /* 150% */
+  }
+
+  .featureItemDescription {
+    font-size: 0.5rem;
+    line-height: 0.8rem;
+  }
+
+  .featureSvg {
+    width: 40px;
+    height: 40px;
+  }
 }

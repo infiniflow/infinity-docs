@@ -9,9 +9,8 @@ import styles from './index.module.css';
 function HomepageHeader() {
   return (
     <>
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <header className={clsx(styles.heroBanner)}>
         <div className="container">
-          <span className={styles.tinyTitle}>Super. Simple. Smart.</span>
           <p className={clsx('hero__subtitle', styles.mainTitle)}>
             The
             <span className={styles.mainBlueTitle}> AI-Native </span>
