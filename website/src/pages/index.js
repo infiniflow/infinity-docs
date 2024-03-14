@@ -6,7 +6,11 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 
-const connectionList = ['Twitter', 'Github', 'Discord'];
+const connectionList = [
+  { label: 'Twitter', link: 'https://twitter.com/infiniflowai' },
+  { label: 'Github', link: 'https://github.com/infiniflow/infinity' },
+  { label: 'Discord', link: 'https://discord.com/invite/jEfRUwEYEV' },
+];
 
 function HomepageHeader() {
   return (
@@ -43,11 +47,13 @@ function JoinUs() {
       <div className={styles.joinUsTitle}>Join Our Community</div>
       <section className={clsx(styles.joinUsConnection, 'container')}>
         {connectionList.map((x) => (
-          <div className={styles.joinUsConnectionItem} key={x}>
+          <div className={styles.joinUsConnectionItem} key={x.label}>
             <span
-              className={clsx(styles[`joinUs${x}`], styles.joinUsIcon)}
+              className={clsx(styles[`joinUs${x.label}`], styles.joinUsIcon)}
             ></span>
-            {x}
+            <Link to={x.link} className={styles.joinUsLabel}>
+              {x.label}
+            </Link>
             <span className={styles.joinUsArrow}></span>
           </div>
         ))}

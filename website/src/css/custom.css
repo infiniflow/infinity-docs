@@ -112,8 +112,8 @@ html[data-theme='dark'] .header-discord-link:before {
 
 .footer {
   /* --ifm-footer-background-color: #242526; */
-  background: #161b26;
-  padding: 64px 0 100px;
+  background: none;
+  /* padding: 64px 0 100px; */
 }
 
 .footer .container {
@@ -121,16 +121,7 @@ html[data-theme='dark'] .header-discord-link:before {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  padding-bottom: 64px;
-}
-
-.footer .container:after {
-  content: ' ';
-  position: absolute;
-  bottom: 0;
-  left: 16px;
-  width: calc(100% - 16px);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  /* padding-bottom: 64px; */
 }
 
 .footer .container .footer__bottom {
