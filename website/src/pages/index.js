@@ -19,7 +19,7 @@ function HomepageHeader() {
             Database for LLM Applications
           </p>
           <p className={styles.minorTitle}>
-            providing incredibly fast full-text and vector search
+            Providing incredibly fast full-text and vector search
           </p>
           <div className={styles.buttons}>
             <Link
@@ -30,8 +30,8 @@ function HomepageHeader() {
             </Link>
           </div>
         </div>
-        <div className={styles.rightBottomBackground}></div>
       </header>
+      <div className={styles.rightBottomBackground}></div>
       <div className={styles.leftTopBackground}></div>
     </>
   );
@@ -41,9 +41,6 @@ function JoinUs() {
   return (
     <section className={styles.joinUsWrapper}>
       <div className={styles.joinUsTitle}>Join Our Community</div>
-      <div className={styles.joinUsDescription}>
-        We have a vibrant tech community eagerly waiting for you here.
-      </div>
       <section className={clsx(styles.joinUsConnection, 'container')}>
         {connectionList.map((x) => (
           <div className={styles.joinUsConnectionItem} key={x}>

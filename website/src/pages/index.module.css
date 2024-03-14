@@ -11,6 +11,7 @@
   position: relative;
   overflow: hidden;
   height: 912px;
+  z-index: 100;
 }
 
 .heroBanner:after {
@@ -34,14 +35,11 @@
   transform: rotate(24.399deg);
   flex-shrink: 0;
   border-radius: 424.446px;
-  opacity: 0.8;
   background-image: linear-gradient(132deg, #0581e5 0%, #05d5d5 100%);
-  background-image: -webkit-linear-gradient(132deg, #0581e5 0%, #05d5d5 100%);
-  background-image: -moz-linear-gradient(132deg, #0581e5 0%, #05d5d5 100%);
-  filter: blur(215.730712890625px);
+  filter: blur(215px);
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 55%;
 }
 
 .leftTopBackground {
@@ -50,15 +48,12 @@
   transform: rotate(24.399deg);
   flex-shrink: 0;
   border-radius: 576.216px;
-  opacity: 0.8;
   background-image: linear-gradient(
     132deg,
     rgb(5 129 229) 0%,
     rgb(5 213 213) 100%
   );
-  background-image: -webkit-linear-gradient(132deg, #0581e5 0%, #05d5d5 100%);
-  background-image: -moz-linear-gradient(to right, #0581e5, #05d5d5);
-  filter: blur(292.8700866699219px);
+  filter: blur(292px);
   position: absolute;
   left: 0;
   top: 0;
@@ -116,7 +111,7 @@
   border: 0;
   color: #fff !important;
   font-family: Inter;
-  font-size: 18px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: 28px;
@@ -138,17 +133,6 @@
   font-weight: 600;
   line-height: 44px;
   letter-spacing: -0.72px;
-  padding-bottom: 20px;
-}
-
-.joinUsDescription {
-  color: #94969c;
-  text-align: center;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 30px; /* 150% */
   padding-bottom: 64px;
 }
 
@@ -176,7 +160,7 @@
 
   color: #f5f5f6;
   font-family: Inter;
-  font-size: 14px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px;

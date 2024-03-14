@@ -77,12 +77,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: {
-        appId: 'G23OEULB0Z',
-        apiKey: '8d8c27bf49a7eb177b2b3fcb02c64d19',
-        indexName: 'infiniflow',
-        contextualSearch: true,
-      },
+      // algolia: {
+      //   appId: 'G23OEULB0Z',
+      //   apiKey: '8d8c27bf49a7eb177b2b3fcb02c64d19',
+      //   indexName: 'infiniflow',
+      //   contextualSearch: true,
+      // },
       // Replace with your project's social card
       prism: {
         theme: require('prism-react-renderer').themes.oceanicNext,
@@ -190,9 +190,7 @@ const config = {
             ],
           },
         ],
-        copyright: `The World’s First and largest Digital
-        Marketplace for Crypto Collectibles
-        and Non - Fungible Tokens`,
+        copyright: `The AI-native database built for LLM applications, providing incredibly fast full-text and vector search.`,
       },
     }),
 };
