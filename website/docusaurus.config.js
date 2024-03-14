@@ -40,7 +40,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          disableVersioning: false,
+          disableVersioning: true,
           sidebarPath: './sidebars.js',
           editUrl:
             'https://github.com/infiniflow/infinity-docs/tree/main/website',
@@ -90,7 +90,7 @@ const config = {
       },
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
-        defaultMode: 'light',
+        defaultMode: 'dark',
         disableSwitch: true,
       },
       docs: {
@@ -100,7 +100,7 @@ const config = {
         },
       },
       navbar: {
-        hideOnScroll: false,
+        hideOnScroll: true,
         title: 'Infinity',
         logo: {
           alt: 'Infinity',
