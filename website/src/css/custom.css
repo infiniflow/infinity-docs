@@ -3,15 +3,8 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-@font-face {
-  font-family: Consolas;
-  src: url('./Consolas.ttf') format('TrueType');
-}
+@import url('./inter.css');
 
-@font-face {
-  font-family: LucidaGrande;
-  src: url('./LucidaGrande.ttf') format('TrueType');
-}
 /* You can override the default Infima variables here. */
 :root {
   --ifm-font-family-base: LucidaGrande, system-ui, -apple-system, Segoe UI,
@@ -45,7 +38,7 @@
 }
 
 body {
-  font-family: 'Lucida Grande', sans-serif;
+  font-family: 'Inter', 'Lucida Grande', sans-serif;
   background-color: #0c111d;
   color: #fff;
   position: relative;
@@ -171,7 +164,6 @@ html[data-theme='dark'] .header-discord-link:before {
 .footer__copyright {
   max-width: 274px;
   color: rgba(255, 255, 255, 0.5);
-  font-family: 'TT Firs Neue';
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
