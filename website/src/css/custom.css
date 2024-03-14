@@ -13,6 +13,7 @@
     'Segoe UI Emoji', 'Segoe UI Symbol';
   --ifm-font-family-monospace: Consolas, SFMono-Regular, Menlo, Monaco,
     'Liberation Mono', 'Courier New', monospace;
+  --ifm-font-color-base: rgba(148, 150, 156, 1);
 
   --ifm-color-primary: #4c8ef4;
   --ifm-color-primary-dark: #2e7bf2;
@@ -42,6 +43,7 @@ body {
   background-color: #0c111d;
   color: #fff;
   position: relative;
+  overflow-x: hidden !important;
 }
 
 /* github */
@@ -142,7 +144,7 @@ html[data-theme='dark'] .header-discord-link:before {
 .footer .footer__title {
   color: #f5f5f6;
   font-family: Inter;
-  font-size: 14px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px;
@@ -151,7 +153,7 @@ html[data-theme='dark'] .header-discord-link:before {
 .footer .footer__link-item {
   color: rgba(255, 255, 255, 0.5);
   font-family: Inter;
-  font-size: 14px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
@@ -173,7 +175,8 @@ html[data-theme='dark'] .header-discord-link:before {
 .footer_custom_copyright {
   position: absolute;
   bottom: -50px;
-  left: 16px;
+  left: calc(50% + 16px);
+  transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.5);
   font-family: Inter;
   font-size: 16px;
@@ -195,5 +198,19 @@ html[data-theme='dark'] .header-discord-link:before {
   color: #f5f5f6;
 }
 .navbar__link {
+  color: #f5f5f6;
+}
+
+.navbar__link--active {
+  color: rgba(21, 112, 239, 1);
+}
+
+.theme-doc-sidebar-container {
+  border: none !important;
+}
+
+.card,
+.padding--lg {
+  background: #161b26;
   color: #f5f5f6;
 }

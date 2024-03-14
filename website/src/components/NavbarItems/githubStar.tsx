@@ -9,41 +9,41 @@ import React, { useEffect, useState } from 'react';
 
 import StarIcon from './star.svg';
 
-let globalstars = ''
+let globalstars = '';
 
 export const GithubStars = () => {
   const [star, setStar] = useState(globalstars);
   useEffect(() => {
     if (!globalstars) {
       fetch('https://api.github.com/repos/infiniflow/infinity')
-      .then((response) => response.json())
-      .then((data) => {
-        let stars;
-        if (data.stargazers_count) {
-          stars = (data.stargazers_count / 1000).toFixed(1) + ' k';
-        } else {
-          stars = '1.5k';
-        }
-        globalstars = stars
-        setStar(stars);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          let stars;
+          if (data.stargazers_count) {
+            stars = (data.stargazers_count / 1000).toFixed(1) + 'k';
+          } else {
+            stars = '1.5k';
+          }
+          globalstars = stars;
+          setStar(stars);
+        });
     }
   }, []);
 
   return (
-  <a
-    href="https://github.com/infiniflow/infinity"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="navbar__item navbar__link" 
-  >
-    <div>
+    <a
+      href="https://github.com/infiniflow/infinity"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="navbar__item navbar__link"
+    >
       <div>
-        <StarIcon height={14} width={14} />
-        <span> Stars </span>
-        <span>{star}</span>
+        <div>
+          <StarIcon height={14} width={14} />
+          <span> Stars </span>
+          <span>{star}</span>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
   );
 };
