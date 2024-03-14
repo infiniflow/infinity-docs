@@ -90,7 +90,7 @@ const config = {
       },
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: 'light',
         disableSwitch: true,
       },
       docs: {
