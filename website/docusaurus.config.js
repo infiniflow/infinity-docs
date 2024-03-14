@@ -144,7 +144,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        logo: { src: 'img/favicon.ico' },
+        // logo: { src: 'img/favicon.ico' },
         links: [
           // {
           //   title: 'Docs',
@@ -157,40 +157,40 @@ const config = {
           // },
 
           {
-            title: 'Community',
+            // title: 'Community',
             items: [
               // {
               //   label: 'Stack Overflow',
               //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               // },
+              // {
+              //   label: 'Discord',
+              //   href: 'https://discord.com/invite/jEfRUwEYEV',
+              // },
+              // {
+              //   label: 'Twitter',
+              //   href: 'https://twitter.com/infiniflowai',
+              // },
               {
-                label: 'Discord',
-                href: 'https://discord.com/invite/jEfRUwEYEV',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/infiniflowai',
-              },
-              {
-                html: `<div class="footer_custom_copyright"> Copyright © ${new Date().getFullYear()} InfiniFlow all rights reserved </div>`,
-              },
-            ],
-          },
-          {
-            title: 'Resources',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/infiniflow/infinity',
+                html: `<div class="footer_custom_copyright"> Copyright © ${new Date().getFullYear()} InfiniFlow all rights reserved. </div>`,
               },
             ],
           },
+          // {
+          //   title: 'Resources',
+          //   items: [
+          //     {
+          //       label: 'Blog',
+          //       to: '/blog',
+          //     },
+          //     {
+          //       label: 'GitHub',
+          //       href: 'https://github.com/infiniflow/infinity',
+          //     },
+          //   ],
+          // },
         ],
-        copyright: `The AI-native database built for LLM applications, providing incredibly fast full-text and vector search.`,
+        // copyright: `The AI-native database built for LLM applications, providing incredibly fast full-text and vector search.`,
       },
     }),
 };

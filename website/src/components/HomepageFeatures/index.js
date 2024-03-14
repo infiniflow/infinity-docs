@@ -65,8 +65,7 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.featuresWrapper}>
       <div>
-        <p className={styles.tinyTitle}>Why infinity?</p>
-        <p className={styles.mainTitle}>Our Core Features</p>
+        <p className={styles.mainTitle}>Core Features</p>
         <p className={styles.minorTitle}>
           Infinity offers top performance, flexibility, easy usability, and
           advanced features for future AI application challenges.
