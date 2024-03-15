@@ -172,7 +172,7 @@ const config = {
               //   href: 'https://twitter.com/infiniflowai',
               // },
               {
-                html: `<div class="footer_custom_copyright"> Copyright © ${new Date().getFullYear()} InfiniFlow all rights reserved. </div>`,
+                html: `<div class="footer_custom_copyright"> © InfiniFlow ${new Date().getFullYear()} </div>`,
               },
             ],
           },
