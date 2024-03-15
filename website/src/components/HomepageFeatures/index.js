@@ -12,7 +12,7 @@ const FeatureList = [
           Achieves 0.1 milliseconds query latency on million-scale vector
           datasets.
         </li>
-        <li>Up to 10K QPS on million-scale vector datasets.</li>
+        <li>Up to 15K QPS on million-scale vector datasets.</li>
       </>
     ),
   },
