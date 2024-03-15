@@ -40,7 +40,7 @@ export const GithubStars = () => {
       <div>
         <div>
           <StarIcon height={14} width={14} />
-          <span> Stars </span>
+          <span> stars </span>
           <span>{star}</span>
         </div>
       </div>
