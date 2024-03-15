@@ -212,5 +212,9 @@ html[data-theme='dark'] .header-discord-link:before {
   background-color: #161b26;
   color: white;
 }
+/* Duplicate logo appears when nabvar hideOnScroll is enabled */
+.sidebarLogo_node_modules-\@docusaurus-theme-classic-lib-theme-DocSidebar-Desktop-styles-module {
+  visibility: hidden;
+}
 
 
