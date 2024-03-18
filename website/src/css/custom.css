@@ -41,7 +41,7 @@
 body {
   font-family: 'Inter', 'Lucida Grande', sans-serif;
   background-color: #0c111d;
-  color: #fff;
+  color: #f5f6f7;
   position: relative;
   overflow-x: hidden !important;
 }
@@ -210,7 +210,6 @@ html[data-theme='dark'] .header-discord-link:before {
 /* .theme-doc-markdown  */
 .markdown code {
   background-color: #161b26;
-  color: white;
 }
 /* Duplicate logo appears when nabvar hideOnScroll is enabled */
 a[class^="sidebarLogo"] {
