@@ -13,7 +13,7 @@ jobs:
         # https://github.com/actions/checkout/blob/v3/README.md
         uses: actions/checkout@v3
         with:
-          repository: infiniflow/finity
+          repository: infiniflow/infinity
           # Relative path under $GITHUB_WORKSPACE to place the repository
           path: source  
 
