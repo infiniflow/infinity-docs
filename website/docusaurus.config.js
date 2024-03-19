@@ -40,7 +40,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          disableVersioning: true,
+          disableVersioning: false,
           sidebarPath: './sidebars.js',
           editUrl:
             'https://github.com/infiniflow/infinity-docs/tree/main/website',
