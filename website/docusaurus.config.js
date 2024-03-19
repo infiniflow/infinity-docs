@@ -9,7 +9,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Infinity',
-  tagline: 'The AI-native database for for LLM applications',
+  tagline: 'AI-native database for LLM applications',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -25,6 +25,8 @@ const config = {
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  // New feature of Docusaurus v3.1
+  onBrokenAnchors: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you

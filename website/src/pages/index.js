@@ -66,7 +66,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title} - The AI-native Database`}
+      title={`AI-native database for LLM`}
       description="Offering incredibly fast full-text and vector search <head />"
     >
       <HomepageHeader />
