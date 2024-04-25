@@ -59,7 +59,7 @@ Create a database using given name. Different approaches will be adopted dependi
 
 - **db_name : str(ont empty)** 
 name of the database
-- **confilict_type : ConflictType**
+- **conflict_type : ConflictType**
 emun type which could be *Error*, *Ignore* or *Replace*, defined in *infinity.common*
 
 ### Returns
@@ -82,7 +82,7 @@ Drop a database by name.
 
 - **db_name : str** 
 name of the database
-- **confilict_type : ConflictType**
+- **conflict_type : ConflictType**
 emun type which could be *Error* or *Ignore*, defined in *infinity.common*
 
 ### Returns
@@ -176,9 +176,9 @@ Create a table using given name, and specify defination of each column.
 - **table_name : str(not empty)** 
 name of the table to be created
 - **columns_definition : dict[str, str]**
-A dict object whose key value pair indicates name of the column and its datatype. Espcially, a vector column should be declared as *"vector, \<dimision>\, \<datatype>\"*
+A dict object whose key value pair indicates name of the column and its datatype. Especially, a vector column should be declared as *"vector, \<dimision>\, \<datatype>\"*
 `note: ordinary datatype can be int8/int16/int32/int64/int128/`
-- **confilict_type : ConflictType**
+- **conflict_type : ConflictType**
 emun type which could be *Error* or *Ignore*, defined in *infinity.common*
 
 ### note
@@ -209,8 +209,31 @@ emun type which could be *Error* or *Ignore*, defined in *infinity.common*
 ### Examples
 
 ```python
-db_obj.create_table("test_create_varchar_table",
-	            {"c1": {"type": "varchar"}, "c2": {"type": "float"}})
+db_obj.create_table("table_example", {
+            "c1": {
+                "type": "int",
+                "constraints": ["primary key",],
+                "default": 1
+            },
+            "c2": {
+                "type": "vector,3,float32",
+                "default": [2.0, 1.2, 3.1],
+            }
+        }, None)
+# CREATE TABLE table_example(
+#   c1 INT PRIMARY KEY DEFAULT 1
+#   c2 EMBEDDING(FLOAT, 3) DEFAULT [2.0,1.2,3.1]
+# );
+
+db_obj.create_table("test_create_varchar_table", {
+            "c1": {
+                "type": "varchar", 
+                "constraints": ["primary key"]
+            },
+            "c2": {
+                "type": "float"
+            }
+        })
 # CREATE TABLE test_create_varchar_table(
 #   c1 VARCHAR PRIMARY KEY,
 #   c2 FLOAT
@@ -231,7 +254,7 @@ Drops a table by name.
 
 - **table_name : str(not empty)** 
 name of the table
-- **confilict_type : ConflictType**
+- **conflict_type : ConflictType**
 emun type which could be *Error* or *Ignore*, defined in *infinity.common*
 
 ### Returns
@@ -348,7 +371,7 @@ A IndexInfo struct contains three fields, which are column_name, index_type, ind
         - FullText : `'ANALYZER'`(default:`'standard'`)
 
         the metric field supports `ip`(inner product) and `l2`(Euclidean distance)
-- **confilict_type : ConflictType**
+- **conflict_type : ConflictType**
 emun type which could be `Error` , `Replace`, or `Ignore`, defined in *infinity.common*
 
 ### Returns
@@ -410,7 +433,7 @@ Drops an index by name.
 
 - **index_name : str** 
 The name of the index to drop.
-- **confilict_type : ConflictType**
+- **conflict_type : ConflictType**
 emun type which could be *Error* or *Ignore*, defined in *infinity.common*
 
 ### Returns
