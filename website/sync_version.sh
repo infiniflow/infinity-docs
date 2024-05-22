@@ -4,7 +4,7 @@ set -x
 
 version=$1
 
-# 默认不变更分支，直接操作
+# Does not switch branch and proceed regardless. 
 if [[ ! -z "$version" ]]
 then
   echo $version

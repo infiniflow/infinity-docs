@@ -53,8 +53,8 @@ const config = {
           //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           versions: {
             current: {
-              label: 'Latest',
-              path: 'latest',
+              label: 'DEV',
+              path: 'dev',
             },
           },
           // Needs to disable versioning when deployed in production.
