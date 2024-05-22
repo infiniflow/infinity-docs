@@ -54,6 +54,7 @@ const config = {
           versions: {
             current: {
               label: 'Latest',
+              path: 'latest',
             },
           },
           // Needs to disable versioning when deployed in production.
