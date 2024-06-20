@@ -95,7 +95,7 @@ const config = {
         theme: require('prism-react-renderer').themes.oceanicNext,
         darkTheme: require('prism-react-renderer').themes.oceanicNext,
       },
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/infinity-social-card.png',
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true,
