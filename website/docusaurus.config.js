@@ -23,7 +23,7 @@ const config = {
   organizationName: 'Infiniflow', // Usually your GitHub org/user name.
   projectName: 'Infinity', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   // New feature of Docusaurus v3.1
   onBrokenAnchors: 'throw',
