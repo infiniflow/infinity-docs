@@ -45,7 +45,7 @@ const config = {
           disableVersioning: false,
           sidebarPath: './sidebars.js',
           editUrl:
-            'https://github.com/infiniflow/infinity-docs/tree/main/website',
+            'https://github.com/infiniflow/infinity/tree/main',
           sidebarCollapsible: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
