@@ -5,9 +5,23 @@ authors: [yingfeng]
 tags: [Blended RAG, sparse vector, tensor, RAG, multi-way recall, ]
 ---
 
+import nwayRetrieval from './nway_retrieval.PNG';
+import multilingualRetrieval from './multilingual_retrieval.PNG';
+import rankingFusion from './ranking_fusion.PNG';
+import dualEncoder from './dual_encoder.png';
+import crossEncoder from './cross_encoder.png';
+import lateInteractionModel from './late_interaction_model.png';
+import effectEfficiency from './effect_efficiency.png';
+import fusion from './fusion.png';
+import tensorArray from './tensor_array.png';
+import maxsim from './maxsim.png';
+import longDocumentRetrievalBenchmark from './long_document_retrieval_benchmark.png';
+
 Infinity v0.2 was released, introducing two new data types: Sparse vector and Tensor. Besides full-text search and vector search, Infinity v0.2.0 offers more retrieval methods. As shown in the diagram below, users can now do retrieval from as many ways as they wish (N ≥ 2) in a hybrid search, making Infinity the most powerful database for RAG so far.<!--truncate--> 
 
-<img src="./nway_retrieval.PNG" style="zoom:50%;" />
+<center>
+<img src={nwayRetrieval} style={{width: 800}} />
+</center>
 
 ## Why hybrid search (multi-way recall)?
 
@@ -28,7 +42,9 @@ The removal of redundant terms here resembles the "stopword removal" process see
 
 In practical terms, any document can be represented with 30,000-dimensional SPLADE sparse vectors, with each dimension denoting the weight of a word. In typical information retrieval evaluation tasks, SPLADE sparse vectors have outperformed traditional search engines based on BM25 ranking. A recent research using the BGE M3 embedding model (reference [2]) validates that hybrid searches using both sparse vectors and dense vectors well surpassed BM25 in typical information retrieval evaluation tasks.
 
-<img src="./multilingual_retrieval.PNG" style="zoom:80%;" />
+<center>
+<img src={multilingualRetrieval} style={{width: 800}} />
+</center>
 
 If it seems that dense vectors + sparse vectors prove a more effective solution for multiple recall (multi-way retrieval), then is it necessary to also have full-text search + dense vectors?
 
@@ -51,8 +67,9 @@ It is clear that three-way retrieval must be paired with fused ranking. Infinity
 3. Reranking using an external model: Infinity natively supports ColBERT-based reranking which we explain further below. 
 
 Infinity provides a powerful ranking fusion mechanism to give users a variety of choices, as illustrated in the two examples below:
-
-<img src="./ranking_fusion.PNG" style="zoom:50%;" />
+<center>
+<img src={rankingFusion} style={{width: 600}} />
+</center>
 
 The first approach is to apply RRF directly to the results of the three-way retrieval and then return the final resuts. Its usage is extremely simple:
 
@@ -83,20 +100,28 @@ ColBERT is introduced as a ranking model in "*Colbert: Efficient and effective p
 
 1. Dual encoder: In a BERT-based dual encoder, for example, query and document are encoded separately, each followed by a pooling layer to output an embedding. In this way, it is only required to calculate the similarity between two embeddings for ranking. A dual encoder can be applied to both ranking and reranking stages, but, as queries and documents are encoded separately, it cannot capture the interactions (correlations) between query and document tokens.
 
-<img src="./dual_encoder.png" style="zoom:40%;" />
+<center>
+<img src={dualEncoder} style={{width: 400}} />
+</center>
 
 2. Cross encoder: This model employs a single decoder to encode both query and document, allowing itself to capture complex interactions between them and yielding more precise ranking results. Rather than outputting embeddings of query and document passages, the cross encoder uses an additional classifier to directly output a similarity score between the query and the document passages. However, as it needs to "juggle" encoding tasks for both query and document passages, a cross encoder is usually very slow for ranking tasks and only suited for the reranking of the final results.
 
-<img src="./cross_encoder.png" style="zoom:40%;" />
+<center>
+<img src={crossEncoder} style={{width: 400}} />
+</center>
 
 
 3. Late Interaction Model: ColBERT, as an example, distinguishes itself from other ranking models in the following two aspects. First, unlike cross encoders, ColBERT employs a dual-encoder architecture, using two independent encoders to encode query and document separately. This separation allows document encoding to be performed offline and query encoding to be performed exclusively during a query, resulting in much faster encoding than cross encoders. Second, a dual encoder converts multiple embeddings into a single embedding output through a pooling layer, ColBERT, in contrast, outputs multiple embeddings directly from its transformer's output layer, without causing semantic loss. Third, ColBERT introduces **MaxSim** (Maximum Similarity), a late interaction similarity function, for ranking. This function calculates the cosine similarity between every query token embedding and all document token embeddings, keep track of each query token embedding's maximum score, and work out the grand total of these scores to get the total query-document score. For example, as shown in the following diagram, a query of a maximum of 32 tokens and a 128-token document would require 32x128 similarity calculations. Cross encoders, conversely, can be called early interaction models, as they perform  interaction calculations during the encoding stage. 
 
-<img src="./late_interaction_model.png" style="zoom:40%;" />
+<center>
+<img src={lateInteractionModel} style={{width: 400}} />
+</center>
 
 The diagram below compares the efficiency and ranking effect of the discussed ranking models together with full-text search. The "Dense Encoder" in the diagram can function as both a retriever and a reranker for normal vector searches. ColBERT's innate late interaction mechanism allows it to capture complex query-document interactions during ranking while achieving significantly faster ranking. ColBERT proves over 100 times more efficient than a cross-encoder at comparable data scales, achieving a good balance between efficiency and effectiveness. These advantages together make ColBERT a highly promising ranking model.
 
-<img src="./effect_efficiency.png" style="zoom:40%;" />
+<center>
+<img src={effectEfficiency} style={{width: 500}} />
+</center>
 
 Despite its advantages, ColBERT faces two key challenges in practical terms:
 
@@ -107,7 +132,9 @@ For the reasons above, Infinity v0.2 introduces the Tensor data type to natively
 
 Firstly, as ColBERT's multiple embeddings output can fit nicely into a Tensor, the **MaxSim** scores can be easily calculated by computing similarities between Tensors. Infinity offers two **MaxSim** scoring approaches. One is binary quantization. This method reduces the required space for Tensor to 1/32 the original size without altering the MaxSim score rankings. It's primarily used as a reranker, retrieving Tensors based on the ranking results of the previous stage. The other is Tensor indexing, which is implemented using EMVB(Reference [7]). As an improvement to ColBERT v2, EMVB accelerates performance through quantization, pre-filtering, and SIMD instructions for key operations. Tensor indexing is used as a retriever, not a reranker. Now Infinity offers users with diverse multi-way retrieval options: they can use Tensor for semantic search to achieve higher ranking quality than normal vector searches; they can combine full-text search with Tensor for the 2-way retrieval required by a high-quality RAG; they can also pair vector search with Tensor, with the former for coarse ranking of large-scale datasets and ColBERT for fast, refined ranking...
 
-<img src="./fusion.png" style="zoom:50%;" />
+<center>
+<img src={fusion} style={{width: 500}} />
+</center>
 
 
 ```python
@@ -120,18 +147,24 @@ res = table_obj.output(['*'])
 
 Secondly, Infinity introduces the Tensor Array data type to handle long documents that exceed the token limits:
 
-<img src="./tensor_array.png" style="zoom:50%;" />
+<center>
+<img src={tensorArray} style={{width: 600}} />
+</center>
 
 
 A document exceeding ColBERT's token limit is split into multiple paragraphs, each encoded into a Tensor and stored in the same row as the original document. When calculating the **MaxSim** score, the query is compared with each paragraph, and the highest score becomes the score of the document.
 
-<img src="./maxsim.png" style="zoom:50%;" />
+<center>
+<img src={maxsim} style={{width: 500}} />
+</center>
 
 In essence, Infinity v0.2 introduces a built-in Tensor data type to support end-to-end ColBERT applications. This enables late interaction ranking models to deliver high-quality ranking results on large-scale datasets, and is crucial to RAG. 
 
 All these diverse retrieval methods require evaluation on a real dataset to assess their effectiveness. Below are Infinity's results on the MLDR dataset, one of the default datasets used by MTEB. MTEB is the most authoritative benchmark for assessing embedding models, and the top-ranking models on its leaderboard are primarily based on cross encoders.
 
-<img src="./long_document_retrieval_benchmark.png" style="zoom:50%;" />
+<center>
+<img src={longDocumentRetrievalBenchmark} style={{width: 600}} />
+</center>
 
 
 The bar graph above demonstrates that combining BM25 full-text search with vector search significantly improves nDCG gains over pure vector search. Blended RAG [Reference 3], which employs full-text, dense vector, and sparse vector searches, outperforms both pure vector and two-way hybrid searches. Further incorporating ColBERT as a reranker with this three-way hybrid approach yields an even more substantial improvement. Compared to using external rerankers (like top-ranking MTEB encoders), combining hybrid search with ColBERT reranker allows in-database reranking and is way more efficient. This approach allows expansion of the Top K range (e.g., to 1,000) before reranking, ensuring high retrieval quality without compromising performance. Consequently, it offers a cost-effective solution for high-retrieval hybrid searches. It's also worth noting that the same retrieval method may perform differently on different datasets. However, it's certain that the more hybrid search techniques employed, the better the retrieval quality. It should be noted that this benchmark doesn't cover combinations with Tensor Index as ranker. Our experiments suggest that using Tensor as a reranker is significantly more cost-effective, a topic we will explore in future articles. Therefore, we recommend a blended RAG combined with a ColBERT Reranker as the optimal hybrid search solution.
