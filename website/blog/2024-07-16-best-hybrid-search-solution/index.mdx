@@ -1,6 +1,6 @@
 ---
 slug: best-hybrid-search-solution
-title: Dense Embedding + Sparse Embedding + Full text search + Tensor = Best RAG?
+title: Dense vector + Sparse vector + Full text search + Tensor reranker = Best retrieval for RAG?
 authors: [yingfeng]
 tags: [Blended RAG, sparse vector, tensor, RAG, multi-way recall, ]
 ---
@@ -17,7 +17,7 @@ import tensorArray from './tensor_array.png';
 import maxsim from './maxsim.png';
 import longDocumentRetrievalBenchmark from './long_document_retrieval_benchmark.png';
 
-Infinity v0.2 was released, introducing two new data types: Sparse vector and Tensor. Besides full-text search and vector search, Infinity v0.2.0 offers more retrieval methods. As shown in the diagram below, users can now do retrieval from as many ways as they wish (N ≥ 2) in a hybrid search, making Infinity the most powerful database for RAG so far.<!--truncate--> 
+Infinity v0.2 was released, introducing two new data types: Sparse vector and Tensor. Besides full-text search and vector search, Infinity v0.2 offers more retrieval methods. As shown in the diagram below, users can now do retrieval from as many ways as they wish (N ≥ 2) in a hybrid search, making Infinity the most powerful database for RAG so far.<!--truncate--> 
 
 <center>
 <img src={nwayRetrieval} style={{width: 800}} />
@@ -94,7 +94,7 @@ res = table_obj.output(['*'])
                .to_pl()
 ```
 
-These multi-way retrieval and ranking fusion mechanisms enable Infinity to provide RAG applications with the most powerful and user-friendly multi-way retrieval capabilities. Beside above, Infinity v0.2.0 introduces the Tensor data type. This data type not only supports ColBERT fusion reranking but can also function independently as a new retrieval strategy. In computer science, a Tensor is equivalent to multiple vectors, a multi-dimensional array, or a matrix. So, why support this data type? Before answering this, let's first discuss ColBERT. 
+These multi-way retrieval and ranking fusion mechanisms enable Infinity to provide RAG applications with the most powerful and user-friendly multi-way retrieval capabilities. Beside above, Infinity v0.2 introduces the Tensor data type. This data type not only supports ColBERT fusion reranking but can also function independently as a new retrieval strategy. In computer science, a Tensor is equivalent to multiple vectors, a multi-dimensional array, or a matrix. So, why support this data type? Before answering this, let's first discuss ColBERT. 
 
 ColBERT is introduced as a ranking model in "*Colbert: Efficient and effective passage search via contextualized late interaction over* *bert**,* *SIGIR* *2020*" (reference [4]), which is one of the most cited papers over the past four years in the field of information retrieval. According to this paper, mainstream ranking model architectures follow these three paradigms:
 
