@@ -197,7 +197,7 @@ const config = {
           //   ],
           // },
         ],
-        // copyright: `The AI-native database built for LLM applications, providing incredibly fast full-text and vector search.`,
+        // copyright: `The AI-native database built for LLM applications, providing incredibly fast hybrid search of dense embedding, sparse embedding, tensor, and full-text.`,
       },
     }),
 };

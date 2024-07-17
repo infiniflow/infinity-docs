@@ -17,23 +17,26 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Fused search',
+    title: 'Powerful search',
     Svg: require('@site/static/img/feature-002.svg').default,
     description: (
       <>
-        Supports a fused search of multiple embeddings and full text, in
-        addition to filtering.
+        <li>
+          Supports a hybrid search of dense embedding, sparse embedding, tensor, and full text, in addition to
+          filtering.
+        </li>
+        <li>Supports several types of rerankers including RRF, weighted sum, and ColBERT.</li>
       </>
     ),
   },
-  {
-    title: 'Rich data types',
-    Svg: require('@site/static/img/feature-003.svg').default,
-    description: (
-      <>
-        Supports a wide range of data types including strings, numerics,
-        vectors, and more.
-      </>
+    {
+      title: 'Rich data types',
+      Svg: require('@site/static/img/feature-003.svg').default,
+      description: (
+        <>
+          Supports a wide range of data types including strings, numerics,
+          vectors, and more.
+        </>
     ),
   },
   {

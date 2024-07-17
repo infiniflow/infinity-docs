@@ -23,7 +23,7 @@ function HomepageHeader() {
             Database for LLM Applications
           </p>
           <p className={styles.minorTitle}>
-            Providing incredibly fast full-text and vector search
+            Providing incredibly fast hybrid search of dense embedding, sparse embedding, tensor, and full-text
           </p>
           <div className={styles.buttons}>
             <Link
@@ -67,7 +67,7 @@ export default function Home() {
   return (
     <Layout
       title={`AI-native database for LLM`}
-      description="Offering incredibly fast full-text and vector search <head />"
+      description="Offering incredibly fast hybrid search of dense embedding, sparse embedding, tensor and full-text <head />"
     >
       <HomepageHeader />
       <main>
