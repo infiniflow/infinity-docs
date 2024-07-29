@@ -46,6 +46,10 @@ body {
   overflow-x: hidden !important;
 }
 
+#__docusaurus {
+  background-color: #0c111d;
+}
+
 /* github */
 .header-github-link {
   display: block;
@@ -212,8 +216,6 @@ html[data-theme='dark'] .header-discord-link:before {
   background-color: #161b26;
 }
 /* Duplicate logo appears when nabvar hideOnScroll is enabled */
-a[class^="sidebarLogo"] {
+a[class^='sidebarLogo'] {
   visibility: hidden;
 }
-
-
