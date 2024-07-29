@@ -97,7 +97,7 @@ const config = {
       },
       image: 'img/infinity-social-card.png',
       colorMode: {
-        defaultMode: 'light',
+        defaultMode: 'dark',
         disableSwitch: true,
       },
       docs: {
