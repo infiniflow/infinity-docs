@@ -46,6 +46,11 @@ body {
   overflow-x: hidden !important;
 }
 
+#__docusaurus {
+  background-color: #0c111d;
+}
+
+
 /* github */
 .header-github-link {
   display: block;
