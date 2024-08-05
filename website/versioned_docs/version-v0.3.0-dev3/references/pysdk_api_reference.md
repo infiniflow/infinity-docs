@@ -90,7 +90,7 @@ A structure containing the following attributes:
 
 - `error_code`: `int` An error code indicating the result of the operation.
   - `0`: The operation succeeds. 
-  - A non-zero value: A specific error condition occurs. 
+  - Non-zero value: A specific error condition occurs. 
 - `error_msg`: `str` The error message providing additional details. It is an empty string if the operation succeeds. 
 
 
@@ -121,7 +121,7 @@ Name of the database. Must not be empty.
 Conflict policy in `enum` for handling situations where a database with the same name exists. 
 
   - `Error`: Raise an error if a database with the same name exists.
-  - `Ignore`: Ignore the database creation requrest and keep the database with the same name as-is.
+  - `Ignore`: Ignore the table creation requrest and keep the database with the same name as-is.
 
 :::tip NOTE
 You may want to import the `infinity.common` package to set `ConflictType`:
@@ -137,11 +137,8 @@ If `ConflictType` is not set, it defaults to `Error`.
 
 ### Returns
 
-- Success: An `infinity.local_infinity.db.LocalDatabase` object in Python module mode or an `infinity.remote_thrift.db.RemoteDatabase` object in client-server mode. 
-- Failure: `InfinityException`
-  - `error_code`: `int` A non-zero value: A specific error condition occurs.
-  - `error_msg`: `str` The error message providing additional details.
-
+- Success: A table object. 
+- Failure: `Exception`
 
 ### Examples
 
@@ -205,7 +202,7 @@ A structure containing the following attributes:
 
 - `error_code`: `int` An error code indicating the result of the operation.
   - `0`: The operation succeeds. 
-  - A non-zero value: A specific error condition occurs. 
+  - Non-zero value: A specific error condition occurs. 
 - `error_msg`: `str` The error message providing additional details. It is an empty string if the operation succeeds. 
 
 ### Examples
@@ -246,7 +243,7 @@ A structure containing the following attributes:
 - `db_names`: `list[str]` A list of all database names.
 - `error_code`: `int` An error code indicating the result of the operation.
   - `0`: The operation succeeds. 
-  - A non-zero value: A specific error condition occurs. 
+  - Non-zero value: A specific error condition occurs. 
 - `error_msg`: `str` The error message providing additional details. 
 
 ### Examples
@@ -274,10 +271,8 @@ Name of the database. Must not be empty.
 
 ### Returns
 
-- Success: An `infinity.local_infinity.db.LocalDatabase` object in Python module mode or an `infinity.remote_thrift.db.RemoteDatabase` object in client-server mode. 
-- Failure: `InfinityException`
-  - `error_code`: `int` A non-zero value: A specific error condition occurs.
-  - `error_msg`: `str` The error message providing additional details.
+- Success: A database object.  
+- Failure: `Exception`
 
 ### Examples
 
@@ -307,7 +302,7 @@ A structure containing the following attributes:
 
 - `error_code`: `int` An error code indicating the result of the operation.
   - `0`: The operation succeeds. 
-  - A non-zero value: A specific error condition occurs. 
+  - Non-zero value: A specific error condition occurs. 
 - `error_msg`: `str` The error message providing additional details. It is an empty string if the operation succeeds. 
 - `database_name`: `str` A list of all database names.
 - `store_dir`: `str` The directory holding the database files. 
@@ -335,7 +330,7 @@ Creates a table with a specified name and defined columns.
 
 #### table_name: `str`, *Required*
 
-Name of the table. Must not be empty.
+Name of the table. Must not be empty. 
 
 #### columns_definition: `dict[str, dict[str, Any]]`, *Required*
 
@@ -349,7 +344,7 @@ Definitions for all table columns as a dictionary. Each key in the dictionary is
 
 #### conflict_type: `ConflictType`, *Optional*
 
-Conflict policy in `enum` for handling situations where a table with the same name exists.
+Conflict policy in `enum` for handling situations where a table with the same name exists. 
 
 - `Error`: Raise an error if a table with the same name exists.
 - `Ignore`: Ignore the table creation requrest and keep the table with the same name as-is.
@@ -368,10 +363,8 @@ If `ConflictType` is not set, it defaults to `Error`.
 
 ### Returns
 
-- Success: An `infinity.local_infinity.table.LocalTable` object in Python module mode or an `infinity.remote_infinity.table.RemoteTable` object in client-server mode. 
-- Failure: `InfinityException`:
-  - `error_code`: `int` A non-zero value: A specific error condition occurs.
-  - `error_msg`: `str` The error message providing additional details.
+- Success: A table object. 
+- Failure: `Exception`
 
 ### Examples
 
@@ -493,7 +486,7 @@ A structure containing the following attributes:
 
 - `error_code`: `int` An error code indicating the result of the operation.
   - `0`: The operation succeeds. 
-  - A non-zero value: A specific error condition occurs. 
+  - Non-zero value: A specific error condition occurs. 
 - `error_msg`: `str` The error message providing additional details. It is an empty string if the operation succeeds. 
 
 ### Examples
@@ -535,10 +528,8 @@ Name of the table to retrieve. Must not be empty.
 
 ### Returns
 
-- Success: An `infinity.local_infinity.table.LocalTable` object in Python module mode or an `infinity.remote_infinity.table.RemoteTable` object in client-server mode. 
-- Failure: `InfinityException`:
-  - `error_code`: `int` A non-zero value: A specific error condition occurs.
-  - `error_msg`: `str` The error message providing additional details.
+- Success: A table object. 
+- Failure: `Exception`. For example, when the specified table does not exist.
 
 ### Examples
 
@@ -562,7 +553,7 @@ A structure containing the following attributes:
 
 - `error_code`: `int` An error code indicating the result of the operation.
   - `0`: The operation succeeds. 
-  - A non-zero value: A specific error condition occurs. 
+  - Non-zero value: A specific error condition occurs. 
 - `error_msg`: `str` The error message providing additional details. It is an empty string if the operation succeeds. 
 - `table_names`: `list[str]` A list of table names. 
 
@@ -598,7 +589,7 @@ The name of the index. `index_name` requirements:
   - Digits (0-9)
   - "_" (underscore)
 
-#### index_infos: `list[IndexInfo()]`, *Required*
+#### index_infos: `list[index.IndexInfo()]`, *Required*
 
 An `IndexInfo` structure contains three fields,`column_name`, `index_type`, and `index_param_list`.
     
@@ -606,7 +597,7 @@ An `IndexInfo` structure contains three fields,`column_name`, `index_type`, and 
   The name of the column to build index on. Must not be empty. 
 - **index_type**: `IndexType`, *Required*  
   Index type. You may want to import `infinity.index` to set `IndexType`: `from infinity.index import IndexType`  
-  - `Hnsw`: An HNSW index. 
+  - `Hnsw`: A HNSW index. 
   - `EMVB`: An EMVB index. Works with tensors only.
   - `FullText`: A full-text index.  
   - `IVFFlat`: An IVFFlat index. 
@@ -629,41 +620,33 @@ An `IndexInfo` structure contains three fields,`column_name`, `index_type`, and 
     - `"pq_subspace_num"`: *Required*
       - `"8"` 
       - `"16"` (recommended) 
-      - `"32"`
+      - `"32"` (recommended) 
       - `"64"`
       - `"128"`
     - `"pq_subspace_bits"`: *Required*
-      - `"8"` (recommended)
+      - `"8"` (Recommended)
       - `"16"`
-  - Parameter settings for a full-text index: 
-    - `"ANALYZER"`: *Optional* 
-      - `"standard"`: (Default) Standard analyzer, segmented by tokens, lowercase processing, provides stemming outputs.
-      - `"chinese"`: Simplified Chinese
-      - `"tradition"`: Traditional Chinese
-      - `"japanese"`: Japanese
-      - `"ngram"`: [N-gram](https://en.wikipedia.org/wiki/N-gram)
+  - Parameter settings for a full text index: 
+    - `"ANALYZER"`: *Optional* - Defaults to `"standard"`
   - Parameter settings for an IVFFlat index:  
     - `"centroids_count"`: *Optional* - Defaults to`"128"` 
     - `"metric"`: *Required - The distance metric to use in similarity search.
       - `"ip"`: Inner product.
       - `"l2"`: Euclidean distance.
       - `"cosine"`: Cosine similarity. 
-  - Parameter settings for a secondary index:  
-    No parameters are required. For now, use an empty list `[]`.
+  - Parameter settings for a secondary index: 
+    No parameters required for now. 
   - Parameter settings for a BMP index: 
-    - `block_size`: *Optional* - The size of the block in a BMP index. Range: `"1"` ~ `"256"`. Defaults to `"16"`.
+    - `block_size`: *Optional* - The size of the block in a BMP index. Range: `"1"` ~ `"256"`. Defaults to 16.
     - `"compress_type"`: *Optional*  
-      - `"compress"`: (Default) Store the block-max index in sparse format. Works best with small block size situations.
-      - `"raw"`: Store the block-max index without compression.
+      - `"compress"`: (Default) Store the block max in sparse format. Works best with small block size situations.
+      - `"raw"`: 
 
 :::tip NOTE
-- Import the `infinity.index` package to set `IndexInfo`, `IndexType`, and `InitParameter`.
-- Import the `infinity` package to set `index.IndexInfo()`.
+You may want to import the `infinity.index` package to set `IndexType`:
 
 ```python
 from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
 ```
 :::
 
@@ -689,174 +672,24 @@ If `ConflictType` is not set, it defaults to `Error`.
 
 ### Returns
 
-A structure containing these attributes:
+A structure containing the following attributes:
 
-  - `error_code`: `int` An error code indicating the result of the operation.  
-    - `0`: The operation succeeds.  
-    - A non-zero value: A specific error condition occurs.  
-  - `error_msg`: `str` The error message providing additional details. It is an empty string if the operation succeeds.  
+- `error_code`: `int` An error code indicating the result of the operation.
+  - `0`: The operation succeeds. 
+  - Non-zero value: A specific error condition occurs. 
+- `error_msg`: `str` The error message providing additional details. It is an empty string if the operation succeeds. 
 
 ### Examples
 
-
-#### Create an HNSW index
-
-```python {1-4}
-from infinity.index import IndexInfo
+```python
 from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# Create a table named "test_index_hnsw" with a 1024-dimensional float vector column "c1"
-table_obj = db_obj.create_table("test_index_hnsw", {"c1": {"type": "vector,1024,float"}}, None)
-# Create an HNSW index named "my_index" on column "c1" with default parameter settings:
-# - "M": "16", 
-# - "ef_construction": "50",
-# - "ef": "50", 
-# - "encode": "plain"
-# Only the "metric" parameter (required) is explicitly set to L2 distance. 
-table_obj.create_index("my_index",[IndexInfo("c1", IndexType.Hnsw, [InitParameter("metric", "l2")])], None)
-```
-
-```python {1-4}
-from infinity.index import IndexInfo
-from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# Create a table named "test_index_hnsw" with a 1024-dimensional float vector column "c1"
-table_obj = db_obj.create_table("test_index_hnsw", {"c1": {"type": "vector,1024,float"}}, None)
-# Create an HNSW index named "my_index" on column "c1"
-# Settings for "M", "ef_construction", "ef", and "metric" are the same as above, except:
-# "encoding" is set to "lvq" 
-table_obj.create_index(
-    "my_index",
-    [
-        IndexInfo(
-            "c1",
-            IndexType.Hnsw,
-            [
-                InitParameter("M", "16"),
-                InitParameter("ef_construction", "50"),
-                InitParameter("ef", "50"),
-                InitParameter("metric", "l2")
-                InitParameter("encode", "lvq") # "lvq" applies to float vector element only
-            ]
-        )
-    ],
-    None
-)
-```
-
-#### Create a full-text index
-
-```python {15}
-from infinity.index import IndexInfo
-from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# Create a table named "test_index_fulltext" with a varchar column "body"
-table_obj = db_obj.create_table("test_index_fulltext", {"body": {"type": "varchar"}}, None)
-# Create a full-text index named "my_index" on column "body" with default parameter settings:
-# - "ANALYZER": "standard"
-table_obj.create_index(
-    "my_index",
-    [
-        IndexInfo(
-            "body", 
-            IndexType.FullText, 
-            []
-        ),
-    ],
-    None
-)
-```
-
-```python {16}
-from infinity.index import IndexInfo
-from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# Create a table named "test_index_fulltext" with a varchar column "body"
-table_obj = db_obj.create_table("test_index_fulltext", {"body": {"type": "varchar"}}, None)
-# Create a full-text index named "my_index" on column "body"
-# Setting "ANALYZER" to "standard" (same as the above)
-table_obj.create_index(
-    "my_index",
-    [
-        IndexInfo(
-            "body", 
-            IndexType.FullText, 
-            [
-                InitParameter("ANALYZER", "standard")
-            ]
-        ),
-    ],
-    None
-)
-```
-
-```python {14-16}
-from infinity.index import IndexInfo
-from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# In the following code snippet, you will see an index built on three columns
-# IMPORTANT: For now, multi-column index works with full-text index ONLY. 
-# Create a table named "test_index_fulltext" with three varchar columns "doctitle", "docdate", and "body"
-table_obj = db_obj.create_table("test_index_fulltext", {"doctitle": {"type": "varchar"}, "docdate": {"type": "varchar"}, "body": {"type": "varchar"}}, None)
-# Create a full-text index named "my_index" on three columns "doctitle", "docdate", and "body" with default parameter settings:
-# - "ANALYZER": "standard"
-table_obj.create_index(
-    "my_index",
-    [
-        IndexInfo("doctitle", IndexType.FullText, []),
-        IndexInfo("docdate", IndexType.FullText, []),
-        IndexInfo("body", IndexType.FullText, []),
-    ],
-    None
-)
-```
-
-
-#### Create an IVFFlat index
-
-```python {17}
-from infinity.index import IndexInfo
-from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# Create a table named "test_index_ivfflat" with a vector column "c1"
-table_ojbect = db_obj.create_table("test_index_ivfflat", {"c1": {"type": "vector,1024,float"}}, None)
-# Create an IVFFlat index named "my_index" on column "c1" with default parameter settings:
-# - "centroids_count": "128"
-# Only the metric parameter (required) is explicitly set to L2 distance. 
-table_obj.create_index(
-    "my_index",
-        [
-        IndexInfo(
-            "c1",
-            IndexType.IVFFlat,
-            [
-                InitParameter("metric", "l2")
-            ]
-        )
-        ],
-    None
-)
-```
-
-```python {16,17}
-from infinity.index import IndexInfo
-from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
 # Create a table named "test_index_ivfflat" with a vector column "c1"
 table_ojbect = db_obj.create_table("test_index_ivfflat", {"c1": {"type": "vector,1024,float"}}, None)
 # Create an IVFFlat index named "my_index" on column "c1"
-# Explicitly settings "centroids_count" to "128" and "metric" to "l2" (same as above)
 table_obj.create_index(
     "my_index",
     [
-        IndexInfo(
+        index.IndexInfo(
             "c1",
             IndexType.IVFFlat,
             [
@@ -869,73 +702,59 @@ table_obj.create_index(
 )
 ```
 
-#### Create a secondary index
-
-```python {14}
-from infinity.index import IndexInfo
+```python
 from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# Create a table named "test_index_secondary" with a varchar column "body"
-table_obj = db_obj.create_table("test_index_secondary", {"c1": {"type": "varchar"}}, None)
-# Create a secondary index named "my_index" on column "c1"
+# Create a table named "test_index_hnsw" with a vector column "c1"
+table_obj = db_obj.create_table("test_index_hnsw", {"c1": {"type": "vector,1024,float"}}, None)
+# Create an HNSW index named "my_index" on column "c1"
 table_obj.create_index(
     "my_index",
     [
-        IndexInfo(
-            "c1", 
-            IndexType.Secondary, 
-            []
-        ),
-    ],
-    None
-)
-```
-
-#### Create a BMP index
-
-```python {16}
-from infinity.index import IndexInfo
-from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# Create a table named "test_index_bmp" with a sparse vector column "c1"
-table_obj = db_obj.create_table("test_index_bmp", {"c1": {"type": "sparse,30000,float,int16"}}, None)
-# Create a BMP index named "my_index" on column "c1" with default parameter settings:
-# - "block_size": "16"
-# - "compress_type": "compress"
-table_obj.create_index(
-    "my_index",
-    [
-        IndexInfo(
+        index.IndexInfo(
             "c1",
-            IndexType.BMP,
-            []
+            IndexType.Hnsw,
+            [
+                index.InitParameter("M", "16"),
+                index.InitParameter("ef_construction", "50"),
+                index.InitParameter("ef", "50"),
+                index.InitParameter("metric", "l2")
+            ]
         )
     ],
     None
 )
 ```
 
-
-```python {16,17}
-from infinity.index import IndexInfo
+```python
 from infinity.index import IndexType
-from infinity.index import InitParameter
-from infinity import index
-# Create a table named "test_index_bmp" with a sparse vector column "c1"
-table_obj = db_obj.create_table("test_index_bmp", {"c1": {"type": "sparse,30000,float,int16"}}, None)
-# Create a BMP index named "my_index" on column "c1"
-# Settings for "block_size" and "compress_type" are the same as above
+# Create a table named "test_index_fulltext" with a vector column "c1"
+table_obj = db_obj.create_table("test_index_fulltext", {"doctitle": {"type": "varchar"}, "docdate": {"type": "varchar"}, "body": {"type": "varchar"}}, None)
+# Create a full-text index named "my_index" on column "c1"
 table_obj.create_index(
     "my_index",
     [
-        IndexInfo(
+        index.IndexInfo("body", IndexType.FullText, []),
+        index.IndexInfo("doctitle", IndexType.FullText, []),
+        index.IndexInfo("docdate", IndexType.FullText, []),
+    ],
+    None
+)
+```
+
+```python
+from infinity.index import IndexType
+# Create a table named "test_index_bmp" with a sparse vector column "c1"
+table_obj = db_obj.create_table("test_index_bmp", {"c1": {"type": "sparse,30000,float,int16"}}, None)
+# Create a BMP index named "my_index" on column "c1"
+table_obj.create_index(
+    "my_index",
+    [
+        index.IndexInfo(
             "c1",
             IndexType.BMP,
             [
-                InitParameter("block_size", "16"),
-                InitParameter("compress_type", "compress")
+                index.InitParameter("block_size", "16"),
+                index.InitParameter("compress_type", "compress")
             ]
         )
     ],
