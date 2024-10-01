@@ -756,18 +756,21 @@ The response includes a JSON object like the following:
     "columns": 
     [
         {
-             "name": "name",
-             "type": "Varchar",
+             "column_name": "name",
+             "column_type": "Varchar",
+             "constraints": "",
              "default": "Null"
         },
         {
-             "name": "score",
-             "type": "Float",
+             "column_name": "score",
+             "column_type": "Float",
+             "constraints": "",
              "default": "Null",
         }
         {
-            "name": "vector_column",
-            "type": "Embedding(float,8)",
+            "column_name": "vector_column",
+            "column_type": "Embedding(float,8)",
+            "constraints": "",
             "default": "Null"
         },
     ]
