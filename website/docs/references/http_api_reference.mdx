@@ -822,7 +822,7 @@ Creates an index on a specified table. If an index with the same name exists, th
 
 #### Request example
 
-- Creates an HNSW index on a vector column:
+- Creates an HNSW index on a dense vector or a multivector column:
 
 ```shell
 curl --request POST \
@@ -833,7 +833,7 @@ curl --request POST \
      {
           "fields": 
           [
-              "vector_column"
+              "dense_column"
           ],
           "index": 
           {
@@ -868,7 +868,7 @@ curl --request POST \
      } '
 ```
 
-- Creates a BMP index on a tensor column
+- Creates a BMP index on a sparse column
 
 ```shell
 curl --request POST \
@@ -879,12 +879,34 @@ curl --request POST \
      {
           "fields": 
           [
-              "vector_column"
+              "sparse_column"
           ],
           "index": 
           {
+              "type": "BMP",
               "block_size": "16",
               "compress_type": "raw"
+          },
+          "create_option": "ignore_if_exists"
+     } '
+```
+
+- Creates a secondary index on a varchar column
+
+```shell
+curl --request POST \
+     --url http://localhost:23820/databases/{database_name}/tables/{table_name}/indexes/{index_name} \
+     --header 'accept: application/json' \
+     --header 'content-type: application/json' \
+     --data ' 
+     {
+          "fields": 
+          [
+              "varchar_column"
+          ],
+          "index": 
+          {
+              "type": "Secondary"
           },
           "create_option": "ignore_if_exists"
      } '
@@ -1758,9 +1780,12 @@ curl --request GET \
                 "match_method": "sparse",
                 "fields": "sparse_column",
                 "query_vector": {"10":1.1, "20":2.2, "30": 3.3},
-                "metric_type": "l2",
+                "metric_type": "ip",
                 "topn": 3,
-                "params": {"ef": "150"}   
+                "params": {
+                              "alpha": "1.0",
+                              "beta": "1.0"
+                          }   
             },
             {
                 "fusion_method": "rrf",
@@ -1832,9 +1857,11 @@ curl --request GET \
     - `"uint8"`.
   - `metric_type`: `string`, *Required*  
     The distance metric to use in similarity search. Used *only* when `"match_method"` is set to `"dense"` or `"sparse"`.  
-    - `"ip"`: Inner product.
-    - `"l2"`: Euclidean distance.
-    - `"cosine"`: Cosine similarity.
+    - When `"match_method"` is set to `"dense"`:  
+      - `"ip"`: Inner product.
+      - `"l2"`: Euclidean distance.
+      - `"cosine"`: Cosine similarity.
+    - When `"match_method"` is set to `"sparse"`, only `"ip"` can be used.  
   - `"fusion_method"`: (*Body parameter*), `enum<string>`, *Required when you have specified multiple matching methods*  
     - `"rrf"`: [Reciprocal rank fusion](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf)  
       RRF is a method for combining multiple result sets with varying relevance indicators into a single result set. It requires no tuning, and the relevance indicators need not be related to achieve high-quality results. RRF is particularly useful when you are uncertain of the relative importance of each retrieval way.  
@@ -2365,6 +2392,170 @@ A `500` HTTP status code indicates an error condition. The response includes a J
 - `"error_code"`: `integer`  
   A non-zero value indicates a specific error condition.
 - `"error_message"`: `string`  
+  When `error_code` is non-zero, `"error_message"` provides additional details about the error.
+
+</TabItem>
+</Tabs>
+
+---
+
+## Show buffer
+
+**GET** `/instance/buffer`
+
+List the cached buffer objects in database.
+
+### Request
+
+- Method: GET
+- URL: `/instance/buffer`
+- Headers: `accept: application/json`
+
+#### Request example
+
+```shell
+curl --request GET \
+     --url http://localhost:23820/instance/buffer \
+     --header 'accept: application/json'
+```
+
+### Response
+
+<Tabs
+  defaultValue="s200"
+  values={[
+    {label: 'Status code 200', value: 's200'},
+    {label: 'Status code 500', value: 's500'},
+  ]}>
+  <TabItem value="s200">
+
+The response includes a JSON object like the following:
+
+```shell
+{
+    "buffer": [
+        {
+            "buffered_type": "Persistent",
+            "path": "/var/infinity/data/nlAn5spku9_db_default_db/sNzUhKy3er_table_table1/seg_0/blk_0/0.col",
+            "size": "32768",
+            "status": "Freed",
+            "type": "data"
+        },
+        {
+            "buffered_type": "Persistent",
+            "path": "/var/infinity/data/nlAn5spku9_db_default_db/sNzUhKy3er_table_table1/seg_0/blk_0/2.col",
+            "size": "131072",
+            "status": "Freed",
+            "type": "data"
+        },
+        {
+            "buffered_type": "Persistent",
+            "path": "/var/infinity/data/nlAn5spku9_db_default_db/sNzUhKy3er_table_table1/seg_0/blk_0/version",
+            "size": "65536",
+            "status": "Freed",
+            "type": "version data"
+        }
+    ],
+    "error_code": 0
+}
+```
+
+- `"error_code"`: `integer`
+  `0`: The operation succeeds.
+
+</TabItem>
+  <TabItem value="s500">
+
+A `500` HTTP status code indicates an error condition. The response includes a JSON object like the following:
+
+```shell
+{
+    "error_code": 2005,
+    "error_message": "Not support in maintenance mode"
+}
+```
+
+- `"error_code"`: `integer`
+  A non-zero value indicates a specific error condition.
+- `"error_message"`: `string`
+  When `error_code` is non-zero, `"error_message"` provides additional details about the error.
+
+</TabItem>
+</Tabs>
+
+---
+
+## Show profiles
+
+**GET** `/instance/profiles`
+
+When set session variable 'enable_profiling', Infinity will record query profile information. This command is to list recorded queries profile.
+
+### Request
+
+- Method: GET
+- URL: `/instance/profiles`
+- Headers: `accept: application/json`
+
+#### Request example
+
+```shell
+curl --request GET \
+     --url http://localhost:23820/instance/profiles \
+     --header 'accept: application/json'
+```
+
+### Response
+
+<Tabs
+  defaultValue="s200"
+  values={[
+    {label: 'Status code 200', value: 's200'},
+    {label: 'Status code 500', value: 's500'},
+  ]}>
+  <TabItem value="s200">
+
+The response includes a JSON object like the following:
+
+```shell
+{
+    "error_code": 0,
+    "profiles": [
+        {
+            "command parsing": "250us",
+            "commit": "0ns",
+            "execution": "380us",
+            "logical plan building": "133us",
+            "physical plan building": "44us",
+            "pipeline building": "38us",
+            "plan optimizing": "1000ns",
+            "record_no": "0",
+            "rollback": "35us",
+            "task building": "70us",
+            "total_cost": "951us"
+        }
+    ]
+}
+```
+
+- `"error_code"`: `integer`
+  `0`: The operation succeeds.
+
+</TabItem>
+  <TabItem value="s500">
+
+A `500` HTTP status code indicates an error condition. The response includes a JSON object like the following:
+
+```shell
+{
+    "error_code": 2005,
+    "error_message": "Not support in maintenance mode"
+}
+```
+
+- `"error_code"`: `integer`
+  A non-zero value indicates a specific error condition.
+- `"error_message"`: `string`
   When `error_code` is non-zero, `"error_message"` provides additional details about the error.
 
 </TabItem>
