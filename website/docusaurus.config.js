@@ -44,8 +44,7 @@ const config = {
         docs: {
           disableVersioning: false,
           sidebarPath: './sidebars.js',
-          editUrl:
-            'https://github.com/infiniflow/infinity/tree/main',
+          editUrl: 'https://github.com/infiniflow/infinity/tree/main',
           sidebarCollapsible: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -136,8 +135,8 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://twitter.com/infiniflowai',
-            'aria-label': 'Twitter',
+            href: 'https://x.com/infiniflowai',
+            'aria-label': 'X',
             position: 'right',
             className: 'header-twitter-link',
           },

@@ -7,7 +7,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import styles from './index.module.css';
 
 const connectionList = [
-  { label: 'Twitter', link: 'https://twitter.com/infiniflowai' },
+  { label: 'X', link: 'https://x.com/infiniflowai' },
   { label: 'Github', link: 'https://github.com/infiniflow/infinity' },
   { label: 'Discord', link: 'https://discord.com/invite/jEfRUwEYEV' },
 ];
@@ -23,7 +23,8 @@ function HomepageHeader() {
             Database for LLM Applications
           </p>
           <p className={styles.minorTitle}>
-            Providing incredibly fast hybrid search of dense embedding, sparse embedding, tensor, and full-text
+            Providing incredibly fast hybrid search of dense embedding, sparse
+            embedding, tensor, and full-text
           </p>
           <div className={styles.buttons}>
             <Link
